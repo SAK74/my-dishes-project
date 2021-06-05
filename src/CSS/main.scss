@@ -1,11 +1,10 @@
 .main{
-    background-color:lighten($color: #000000, $amount: 10);
+    background-color:lighten( #000000,  10);
     color: whitesmoke;
     font: {
         size: large;
         family: fangsong;
     }
-    // text-align: center;
     display: flex;
     flex-flow: column;
     align-items: center;
@@ -15,7 +14,6 @@
     font-style: italic;
     font-size: larger;
     text-align: center;
-
 }
 fieldset {
     display: inline-flex;
@@ -23,33 +21,28 @@ fieldset {
     border: none;
     margin: 10px;
 }
-// form {
-//     width: 600px;
-// }
 .nav-button{
-    // width: 100px;
-    // height: 2em;
-    // margin: 20px 0;
-    // float: right;
-
     text-align: center;
     width: 150px;
     height: 2em;
     margin: 20px 0;
     float: right;
     text-decoration: none;
-    background-color: rosybrown;
+    background-color:lighten( dodgerblue, 15%);
     color: black;
     cursor: pointer;
+    border-radius: 5px;
+}
+button:disabled {
+    background-color: lightskyblue;
+    opacity: .4;
+    cursor: initial;
 }
 label{
     margin-left: 1em;
 }
 section{
     width: 600px;
-    // display: flex;
-    // flex-flow: column;
-    // align-items: center;
 }
 input[type="number"], #diameter{
     width: 4em;
@@ -70,4 +63,6 @@ input[type="number"], #diameter{
     color: inherit;
     text-decoration: inherit;
 }
-
+.unselected{
+    border: thin solid red;
+}

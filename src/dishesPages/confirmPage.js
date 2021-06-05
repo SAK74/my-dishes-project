@@ -17,7 +17,6 @@ export function ConfirmPage(){
                     {renderArr} 
                 </ul> 
             </div>
-            
             <div>
                 <button className = "nav-button left">
                     <Link className = "inherited" to = "/">back to select</Link>
@@ -25,9 +24,7 @@ export function ConfirmPage(){
                 <button className = "nav-button">
                     <Link className = "inherited" to = "/send">send order</Link>
                 </button>
-                
             </div>
-            
         </section>
     )
 }

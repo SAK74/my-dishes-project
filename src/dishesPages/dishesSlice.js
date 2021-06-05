@@ -1,36 +1,31 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { useSelector } from "react-redux";
 
-const initialState = {
-    order: {
+const initialOrder = {
         name: "",
         prepTime: "00:00:00",
         type: undefined
-    },
-    ordered: [],
-    status: "iddle",
-    error: null
 };
 
 export const sendRequest = createAsyncThunk("sendRequest", async obj => {
-    // const state = useSelector(state => state.order);
-    const response = await fetch('http://localhost:3000/posts', {
+    const response = await fetch('https://frosty-wood-6558.getsandbox.com:443/dishes', {
         method: "POST",
         body: JSON.stringify(obj),
         headers:{
             "Content-Type": "application/json"
         }
     });
-    // console.log("response: ", response);
-    if (!response.ok) throw new Error(response.status + " " + response.statusText);
-    // const json = await response.json();
-    // console.log("json ", json);
+    if (!response.ok) throw new Error("error... status: " + response.status + " " + response.statusText);
     return await response.json();
 });
 
 const dishesSlice = createSlice({
-    initialState,
     name: 'dishes',
+    initialState: {
+        order: initialOrder,
+        ordered: [],
+        status: "iddle",
+        error: null
+    },
     reducers:{
         addOrder: (state, action) => {
             const obj = action.payload;
@@ -38,24 +33,20 @@ const dishesSlice = createSlice({
             state.order = obj;
             state.status = "iddle";
         },
-        resetStatus: state => {state.status = "iddle"}
+        resetOrder: state => {state.order = initialOrder}
     },
     extraReducers:{
         [sendRequest.pending]: state => {state.status = "sending"},
         [sendRequest.fulfilled]: (state, action) => {
-            // console.log('action_fulfilled: ', action);
             state.status = 'complete';
             state.ordered.push(action.payload);
-            // console.log('state_order: ', state.order);
         },
         [sendRequest.rejected]: (state, action) => {
-            // console.log('action_reject: ', action);
             state.status = "failed";
             state.error = action.error.message;
-            // console.log(state.status);
         }
     }
     });  
 
-export const {addOrder, resetStatus} = dishesSlice.actions;
+export const {addOrder, resetOrder} = dishesSlice.actions;
 export default dishesSlice.reducer;

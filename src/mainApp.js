@@ -21,7 +21,6 @@ export function MainApp(){
                         </Route>
                     </Switch>
             </div>
-            
         </Router>
     )
 }

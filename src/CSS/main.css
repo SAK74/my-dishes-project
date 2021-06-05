@@ -28,9 +28,16 @@ fieldset {
   margin: 20px 0;
   float: right;
   text-decoration: none;
-  background-color: rosybrown;
+  background-color: #6bb6ff;
   color: black;
   cursor: pointer;
+  border-radius: 5px;
+}
+
+button:disabled {
+  background-color: lightskyblue;
+  opacity: 0.4;
+  cursor: initial;
 }
 
 label {
@@ -62,4 +69,8 @@ input[type=number], #diameter {
 .inherited {
   color: inherit;
   text-decoration: inherit;
+}
+
+.unselected {
+  border: thin solid red;
 }/*# sourceMappingURL=main.css.map */
