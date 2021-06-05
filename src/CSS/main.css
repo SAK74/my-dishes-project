@@ -1,0 +1,65 @@
+.main {
+  background-color: #1a1a1a;
+  color: whitesmoke;
+  font-size: large;
+  font-family: fangsong;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+}
+
+.header {
+  font-style: italic;
+  font-size: larger;
+  text-align: center;
+}
+
+fieldset {
+  display: inline-flex;
+  height: 1.5em;
+  border: none;
+  margin: 10px;
+}
+
+.nav-button {
+  text-align: center;
+  width: 150px;
+  height: 2em;
+  margin: 20px 0;
+  float: right;
+  text-decoration: none;
+  background-color: rosybrown;
+  color: black;
+  cursor: pointer;
+}
+
+label {
+  margin-left: 1em;
+}
+
+section {
+  width: 600px;
+}
+
+input[type=number], #diameter {
+  width: 4em;
+}
+
+.ul-container {
+  display: flex;
+  justify-content: center;
+}
+.ul-container ul {
+  display: flex;
+  flex-flow: column;
+  align-items: flex-start;
+}
+
+.left {
+  float: left !important;
+}
+
+.inherited {
+  color: inherit;
+  text-decoration: inherit;
+}/*# sourceMappingURL=main.css.map */
