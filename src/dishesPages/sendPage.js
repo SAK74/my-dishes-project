@@ -22,7 +22,12 @@ export function SendPage(){
     }
 
     if (status === "sending") content = "please wait ..."
-    else if (status === "failed") content = error
+    else if (status === "failed") content = (
+        <section>
+            <p>{error}</p>
+            <button className = "nav-button" onClick = {handleClick}>retry again</button>
+        </section>
+    )
     else if (status === "complete") {
                 content = (
                     <section>

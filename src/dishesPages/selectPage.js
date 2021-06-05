@@ -19,6 +19,8 @@ export const SelectPage = () => {
     const [type, setType] = useState(storedType);
     const [extendsParam, setExtendsParam] = useState(rest);
     const history = useHistory();
+
+    // checked or all field is fulled ---------
     const canSend = [name, type].every(Boolean) && prepTime.split(":").some(el => Boolean(parseInt(el))) && (type === "pizza" ? Number(extendsParam.diameter) : true);
         
     const handleChange = ev => {
@@ -77,8 +79,8 @@ export const SelectPage = () => {
                     </select>
                 </fieldset>
 
+                {/* ------------ showing extend fields ---------- */}
                 <ExtendParam type = {type} extendsParam = {extendsParam} change = {handleChange}/>
-
                 <div>
                    <button className = "nav-button" disabled = {!canSend} onClick = {handleSubmit}>select</button> 
                 </div>
