@@ -33,7 +33,7 @@ export function SendPage(){
                     <section>
                         <p>successful, your order id: {ordered.id}</p>
                         <p>(stored in "state.ordered")</p> 
-                        <button className = "nav-button" onClick = {handleClick}>order again</button>
+                        <button className = "nav-button" onClick = {handleClick}>ordered again</button>
                     </section>
                 );
     } else return null;

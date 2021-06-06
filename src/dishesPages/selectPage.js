@@ -59,28 +59,34 @@ export const SelectPage = () => {
             <p className = "header">select dish</p>
             <form onSubmit = {ev => ev.preventDefault()}>
                 <fieldset>
-                    <label htmlFor = "name">dish name * </label>
+                    <label htmlFor = "name">dish name&nbsp;</label>
                     <input className = {name ? "selected" : "unselected"} id = "name" value = {name} onChange = {handleChange}/>
+                    <sup className = {name ? "selected" : "unselected"}>&nbsp;*</sup>
                 </fieldset>
 
                 <fieldset>
-                    <label htmlFor = "prepTime">preperation time * </label>
+                    <label htmlFor = "prepTime">preperation time&nbsp;</label>
                     <input className = {prepTime.split(":").some(el => Boolean(parseInt(el))) ? "selected" : "unselected"} 
                       id = "prepTime" type = "time" step = "1" value = {prepTime} onChange = {handleChange}/> 
+                    <sup className = {prepTime.split(":").some(el => Boolean(parseInt(el))) ? "selected" : "unselected"}>&nbsp;*</sup>
                 </fieldset>
 
                 <fieldset>
-                    <label htmlFor = "type">type</label>
+                    <label htmlFor = "type">type&nbsp;</label>
                     <select className = {type ? "selected" : "unselected"} id = "type" value = {type} onChange = {handleChange}>
                         <option></option>
                         <option>pizza</option>
                         <option>soup</option>
                         <option>sandwich</option>
                     </select>
+                    <sup className = {type ? "selected" : "unselected"}>&nbsp;*</sup>
                 </fieldset>
 
                 {/* ------------ showing extend fields ---------- */}
                 <ExtendParam type = {type} extendsParam = {extendsParam} change = {handleChange}/>
+                <div>
+                    <sup>*</sup> required fields !
+                </div>
                 <div>
                    <button className = "nav-button" disabled = {!canSend} onClick = {handleSubmit}>select</button> 
                 </div>
@@ -94,25 +100,32 @@ function ExtendParam ({type, extendsParam, change}){
     switch (type){
         case "pizza": return (
             <fieldset>
-                <label htmlFor = "no_of_slices">no of slices</label>
-                <input id = "no_of_slices" type = "number" min = "1" value = {extendsParam.no_of_slices} onChange = {change}/>
-                <label htmlFor = "diameter">diameter</label>
+                <label htmlFor = "no_of_slices">no of slices&nbsp;</label>
+                <input className = {extendsParam.no_of_slices ? "selected" : "unselected"} id = "no_of_slices" 
+                  type = "number" min = "1" value = {extendsParam.no_of_slices} onChange = {change}/>
+                <sup className = {extendsParam.no_of_slices ? "selected" : "unselected"}>&nbsp;*</sup>
+
+                <label htmlFor = "diameter">diameter&nbsp;</label>
                 <input className = {extendsParam.diameter ? "selected" : "unselected"} id = "diameter" min = "0" 
                   value = {extendsParam.diameter} onChange = {change}/>
+                <sup className = {extendsParam.diameter ? "selected" : "unselected"}>&nbsp;*</sup>
+
             </fieldset>
         );
         case "soup": return (
         <fieldset>
-            <label htmlFor = "spiciness_scale">spiciness scale</label>
+            <label htmlFor = "spiciness_scale">spiciness scale&nbsp;</label>
             <input id = "spiciness_scale" type = "range" min = "1" max = "10" value = {extendsParam.spiciness_scale} onChange = {change}/>
-            <span>{extendsParam.spiciness_scale}</span>
+            &nbsp;{extendsParam.spiciness_scale}
         </fieldset>
         );
         case "sandwich": return (
         <fieldset>
-            <label htmlFor = "slices_of_bread">slices of bread</label>
-            <input id = "slices_of_bread" type = "number" min = "1" value = {extendsParam.slices_of_bread} onChange = {change}/>
-            
+            <label htmlFor = "slices_of_bread">slices of bread&nbsp;</label>
+            <input className = {extendsParam.slices_of_bread ? "selected" : "unselected"} id = "slices_of_bread" type = "number" min = "1" 
+              value = {extendsParam.slices_of_bread} onChange = {change}/>
+            <sup className = {extendsParam.slices_of_bread ? "selected" : "unselected"}>&nbsp;*</sup>
+
         </fieldset>
         );
         default: return null;

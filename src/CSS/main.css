@@ -71,6 +71,14 @@ input[type=number], #diameter {
   text-decoration: inherit;
 }
 
-.unselected {
+input.unselected {
   border: thin solid red;
+}
+
+sup {
+  color: red;
+}
+
+sup.selected {
+  opacity: 0;
 }/*# sourceMappingURL=main.css.map */
