@@ -7,7 +7,8 @@ const initialOrder = {
 };
 
 export const sendRequest = createAsyncThunk("sendRequest", async obj => {
-    const response = await fetch('https://frosty-wood-6558.getsandbox.com:443/dishes', {
+    const response = await fetch('http://localhost:3000/dishes'  // you can set necessary URL
+       ,{
         method: "POST",
         body: JSON.stringify(obj),
         headers:{
