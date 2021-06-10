@@ -3,9 +3,7 @@ import { Link } from "react-router-dom";
 
 export function ConfirmPage(){
     const state = useSelector(state => state.order);
-    console.log("state confirm: ", state);
     const arr = Object.entries(state);
-    console.log(arr);
     const renderArr = arr.map(elem => (
         <li key = {elem[0]}>{elem[0]} : {elem[1]}</li>
     ))

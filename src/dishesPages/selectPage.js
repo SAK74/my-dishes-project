@@ -4,14 +4,8 @@ import { useHistory } from "react-router";
 import { addOrder } from "./dishesSlice";
 
 export const SelectPage = () => {
-    const state = useSelector(state => state.order);
-    const storedName = state.name;
-    const storedPrepTime = state.prepTime;
-    const storedType = state.type;
-    const rest = useSelector(state => {
-        const {name, prepTime, type, ...rest} = state.order;
-        return rest;
-    });
+
+    const {name: storedName, prepTime: storedPrepTime, type: storedType, ...rest} = useSelector(state => state.order);
     const dispatch = useDispatch();
 
     const [name, setName] = useState(storedName);
@@ -20,7 +14,7 @@ export const SelectPage = () => {
     const [extendsParam, setExtendsParam] = useState(rest);
     const history = useHistory();
 
-    // checked or all field is fulled ---------
+    // checked or all required fields is fulled ---------
     const canSend = [name, type].every(Boolean) && prepTime.split(":").some(el => Boolean(parseInt(el))) && (type === "pizza" ? Number(extendsParam.diameter) : true);
         
     const handleChange = ev => {
