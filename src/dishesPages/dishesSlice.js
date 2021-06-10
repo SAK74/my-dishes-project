@@ -7,8 +7,13 @@ const initialOrder = {
 };
 
 export const sendRequest = createAsyncThunk("sendRequest", async obj => {
+<<<<<<< HEAD
     const response = await fetch('http://localhost:3000/dishes'   // you can set necessary URL
-    , {
+       ,{
+=======
+    const response = await fetch('http://localhost:3000/dishes'  // you can set necessary URL
+       ,{
+>>>>>>> 703e351ec91e040e357f5e26f83598f1f2f1b28f
         method: "POST",
         body: JSON.stringify(obj),
         headers:{
